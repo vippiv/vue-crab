@@ -1,0 +1,19 @@
+html,body{line-height: 2.5;background-color: #ECECEC;}
+a{color:#333;}
+li{list-style: none;}
+
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{*+height:1%;}
+
+.fix-padding{
+	padding: 0 0.5em;
+}
+.red{
+	color:red;
+}
+.pointer{
+	cursor: pointer;
+}
+.img-responsive{max-width: 100%;}
+
+.mt50{margin: 50px 0;}
