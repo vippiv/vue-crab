@@ -58,9 +58,6 @@ export default {
   			qty : this.qty
   		}
   		this.$store.commit(types.CHANGE_PRODUCTQTY,obj);
-//		setTimeout(function(){
-//			alert('加入成功');
-//		},0);
   	}
   },
   filters : {
