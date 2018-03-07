@@ -11,8 +11,8 @@
     			<p style="margin-bottom: 0;"><strong>礼盒包含</strong></p>
     			<p>{{spec}}</p>
     			<div class="row">
-    				<div class="col-sm-6"><input type="number" class="form-control" placeholder="请输入数字，默认为一份"/></div>
-    				<div class="col-sm-6"><button class="btn btn-primary">加入购物车</button></div>
+    				<div class="col-sm-6"><input type="number" class="form-control" placeholder="请输入数字，默认为一份" v-model="qty"/></div>
+    				<div class="col-sm-6"><button class="btn btn-primary" @click="add(id,type)">加入购物车</button></div>
     			</div>
     		</div>
     	</div>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+	import * as types from "../../store/mutation-type"
 export default {
   name: 'detail',
   data () {
@@ -33,25 +34,48 @@ export default {
       title : "",
       price : "",
       spec : "",
-      imglink : ""
+      imglink : "",
+      type : "",
+      qty : ""
     }
   },
   computed : {
   	'coupons'(){
-  		return this.$store.state.product.coupons;
+  		return this.$store.state.b.product.coupons;
   	},
   	'packages'(){
-  		return this.$store.state.product.packages;
+  		return this.$store.state.b.product.packages;
   	},
   	'single'(){
-  		return this.$store.state.product.single;
+  		return this.$store.state.b.product.single;
+  	},
+  },
+  methods : {
+  	add(id,type){
+  		var obj = {
+  			id : id,
+  			type : type,
+  			qty : this.qty
+  		}
+  		this.$store.commit(types.CHANGE_PRODUCTQTY,obj);
+//		setTimeout(function(){
+//			alert('加入成功');
+//		},0);
+  	}
+  },
+  filters : {
+  	minQty(){
+  		if(this.qty<0){
+  			return 0;
+  		}
+  		return this.qty;
   	}
   },
   mounted(){
   	let flag = this.$route.path.match(/\/(\w+)\//)[1];
   	let id = this.$route.params.id;
   	for(var i=0;i<this[flag].length;i++){
-	  		if(this[flag][i]["pid"] == id){
+	  		if(this[flag][i]["id"] == id){
 	  			this.id = this[flag][i].id;
 	  			this.title = this[flag][i].title;
 	  			this.price = this[flag][i].price;
@@ -60,6 +84,7 @@ export default {
 	  			break;
 	  		}
   	}
+  	this.type = flag;
   }
 }
 </script>

@@ -5,6 +5,8 @@ li{list-style: none;}
 .clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
 .clearfix{*+height:1%;}
 
+.rel{position: relative;} .abs{position: absolute;}
+
 .fix-padding{
 	padding: 0 0.5em;
 }
@@ -16,4 +18,5 @@ li{list-style: none;}
 }
 .img-responsive{max-width: 100%;}
 
-.mt50{margin: 50px 0;}
+.m50{margin: 50px 0;}
+.mt50{margin-top: 50px;}

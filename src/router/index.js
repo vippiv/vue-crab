@@ -16,6 +16,7 @@ export default new Router({
       path: '/',
       name: 'index',
       component: index,
+      redirect : "/coupons",
       children : [
       	{
       		path : "coupons",
@@ -34,12 +35,14 @@ export default new Router({
       	},
       	{
   				path : "coupons/:id",
-  				name : "couponsDetail",
   				component : productDetail
   			},
   			{
   				path : "packages/:id",
-  				name : "packagesDetail",
+  				component : productDetail
+  			},
+  			{
+  				path : "single/:id",
   				component : productDetail
   			},
   			{

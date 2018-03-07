@@ -17,7 +17,7 @@ export default {
       size : this.qty
     }
   },
-  props : ["qty","id"],
+  props : ["qty","id","type"],
   methods : {
   	reduce(){
   		if(this.size>1){
@@ -32,7 +32,8 @@ export default {
   	emitQty(){
   		var obj = {
   			id : this.id,
-  			qty : this.size
+  			qty : this.size,
+  			type : this.type
   		}
   		this.$emit("getQty",obj);
   	}

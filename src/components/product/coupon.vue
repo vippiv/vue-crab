@@ -1,5 +1,5 @@
 <template>
-  <div class="coupon">
+  <div class="coupon mt50">
     <div class="container">
     	<div class="row">
     		<div class="col-md-4 col-sm-6" v-for="item in coupons">
@@ -24,7 +24,7 @@ export default {
   },
   computed : {
   	'coupons'(){
-  		return this.$store.state.product.coupons;
+  		return this.$store.state.b.product.coupons;
   	}
   }
 }
@@ -32,8 +32,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.coupon-item{margin: 50px 0px;}
-.coupon-item{background-color: white; color: white;}
+.coupon-item{background-color: white; color: white;margin-bottom: 50px;}
 .coupon-item a{color: white;}
 .coupon-item img{max-width: 100%;}
 .coupon-item .head{background: url("../../assets/title-bg.png"); line-height: 49px;}

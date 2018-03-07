@@ -1,5 +1,5 @@
 <template>
-  <div class="package">
+  <div class="package mt50">
     <div class="container">
     	<div class="row">
     		<div class="col-md-4 col-sm-6" v-for="item in packages">
@@ -24,7 +24,7 @@ export default {
   },
   computed : {
   	'packages'(){
-  		return this.$store.state.product.packages;
+  		return this.$store.state.b.product.packages;
   	}
   }
 }
@@ -32,8 +32,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.package-item{margin: 50px 0px;}
-.package-item{background-color: white; color: white;}
+.package-item{background-color: white; color: white;margin-bottom: 50px;}
 .package-item a{color: white;}
 .package-item img{max-width: 100%;}
 .package-item .head{background: url("../../assets/title-bg.png"); line-height: 49px;}

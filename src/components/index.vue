@@ -21,6 +21,8 @@ export default {
   components : {
   	headGuide,
   	footGuide
+  },
+  mounted(){
   }
 }
 </script>
